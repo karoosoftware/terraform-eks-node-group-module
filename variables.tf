@@ -3,6 +3,11 @@ variable "node_role_name" {
   description = "Name of the IAM role used by the EKS managed node group."
 }
 
+variable "node_group_name" {
+  type        = string
+  description = "Name of the EKS managed node group."
+}
+
 variable "subnet_ids" {
   type        = list(string)
   description = "Subnet IDs used by the EKS managed node group."
