@@ -10,6 +10,12 @@ resource "aws_eks_node_group" "this" {
     min_size     = 1
   }
 
+  depends_on = [
+    aws_iam_role_policy_attachment.worker_node_policy,
+    aws_iam_role_policy_attachment.ecr_pull_policy,
+    aws_iam_role_policy_attachment.cni_policy,
+  ]
+
 }
 
 data "aws_iam_policy_document" "eks_node_assume_role" {
